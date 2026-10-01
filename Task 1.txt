@@ -1,0 +1,38 @@
+16 ?- house = house.
+true.
+// same constant
+
+17 ?- house = abc.
+false.
+// Different constant
+
+18 ?- edge(a,b) = edge(C,b).
+C = a.
+// C is same as a
+
+19 ?- edge(C,B) = edge(a,d).
+C = a,
+B = d.
+// C is a and B is d
+
+20 ?- edge(A,f(g,h)) = edge(a,B).
+A = a,
+B = f(g, h).
+// Ais a and B is f(g,h)
+
+21 ?- edge(A,A) = edge(b,c).
+false.
+// since b and c are different constants, A can't match both
+
+22 ?- edge(A,A) = edge(b,b).
+A = b.
+// since b is repeated constant, A is equal to b
+
+23 ?- A = B, B = f.
+A = B,
+B = f.
+// A equals B which equals f, thus, A is f
+
+24 ?- A = B, B = f, A = e.
+false.
+// f and e are different A equal B which equals f meaning that A is f but then it says A equal e too, thus, it's false because e and f are different
